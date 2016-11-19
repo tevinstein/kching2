@@ -1,6 +1,8 @@
-# kching2
+# kching (without user login/signup)
 
 ![kching logo](http://i.imgur.com/0HV73sZ.png "kching logo")
+
+kching is an app that lets users to create, read, update and delete their monthly expenses. The system will then automatically count users' current expenses and balance.
 
 ##### kching is Tevinstein's submission for a Hacktiv8 portfolio project with
 - Node.js 6+
