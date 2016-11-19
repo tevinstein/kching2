@@ -8,9 +8,6 @@
 - MongoDB
 - Mongoose
 
-##### This repo consists the following module from the project
-- Web API Build something beautiful
-
 ## Installation
 - Clone the repo: `git clone https://github.com/tevinstein/kching2.git`
 - Install packages: `npm install`
