@@ -1,0 +1,51 @@
+  <div class="container"><div class="col-md-10 col-md-offset-1">
+    <div class="row">
+      <% if (success.length > 0) { %>
+    <div class="alert alert-success"><%= success %></div>
+  <% } %>
+  
+  <% function addcommas(input){
+    var text = input.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")
+    return text
+  }%>
+    <div class="well well-lg text-center"><p>Your Monthly Salary:</b>   <mark>Rp. <%= addcommas(datas.salary) %>,00</mark></p> <p><b>Your Pay Date:</b><mark><%= datas.pay_date %></mark></p>
+    <hr>
+    <p><b>Your Current Balance:</b><mark>Rp. <%= addcommas(datas.balance) %>,00</mark></p><p>Your Total Expenses:</b>   <mark>Rp. <%= addcommas(datas.total_expenses) %>,00</mark></p>
+  </div>
+  <div class="col-md-12">
+    <div class="text-center">
+      <a href="/datas/<%= datas._id %>/add" class="btn btn-lg btn-primary">Add an expense</a></div>    
+    </div>
+  </div>
+  
+    <br>
+
+  <table class="table" style="margin-top: 20px">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Date</th>
+        <th>Cost</th>
+        <th>Image</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+      <% for (var i=0;i<datas.expenses.length;i++) { %>
+        <tr>
+          <td class="col-md-4"><a href="/datas/<%= datas._id %>/<%= datas.expenses[i]._id %>"><%= datas.expenses[i].category %></a></td>
+          <td class="col-md-2 date"><%= datas.expenses[i].date %></td>
+          <td class="col-md-2"><%= addcommas(datas.expenses[i].cost) %></td>
+          <td class="col-md-2"><%if(datas.expenses[i].image) {%><img src= "/images/<%= datas.expenses[i].image %>" width="100px"><%}%></td>
+          <td class="col-md-2">
+            <a href="/datas/<%= datas._id %>/<%= datas.expenses[i]._id %>/edit" class="btn btn-sm btn-warning"><span class="fa fa-pencil"></span></a>
+            <a href="/datas/<%= datas._id %>/<%= datas.expenses[i]._id %>/delete" class="btn btn-sm btn-danger"><span class="fa fa-trash"></span></a>
+          </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+  </div></div>
+  
+  

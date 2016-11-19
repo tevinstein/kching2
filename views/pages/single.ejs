@@ -1,0 +1,27 @@
+  <% function addcommas(input){
+    var text = input.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.")
+    return text
+  }%>
+
+<div class="container">
+    <div class="col-md-8 col-md-offset-2 text-center">
+        <% if (success.length > 0) { %>
+            <div class="alert alert-success">
+                <%= success %>
+            </div>
+            <% } %>
+
+                <div class="well well-lg">
+                    <h1><%= data.category %></h1>
+                    <%if(data.image) {%>
+                    <img src= "/images/<%= data.image %>" width="500px">
+                    <% } %>
+                    <h3>Expense Date: <strong><%= data.date %></strong></h3>
+                    <h3>Expense Cost: <strong>Rp. <%= addcommas(data.cost) %>,00</strong></h3>
+                    
+                    <a href="/datas/<%= datas._id %>/<%= data._id %>/edit" class="btn btn-md btn-warning"><span class="fa fa-pencil"></span> Edit data</a>
+                    <a href="/datas/<%= datas._id %>/<%= data._id %>/delete" class="btn btn-md btn-danger"><span class="fa fa-trash"></span> Delete data</a>
+                    <a href="/datas/<%= datas._id %>" class="btn btn-md btn-success"><span class="fa fa-arrow-left"></span> Back to main menu</a>
+                </div>
+    </div>
+</div>

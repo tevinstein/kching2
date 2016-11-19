@@ -1,0 +1,39 @@
+
+  <div class="container text-center" style="padding-top: 40px">
+    <img src="http://i.imgur.com/6goJgWw.png" alt="kching" width="300px">
+
+    <div class="col-md-8 col-md-offset-2">
+    	<h1>Let's Get Started!</h1><br><br><br>
+
+                <% if (errors.length > 0) { %>
+             <div class="alert alert-danger">
+                 <% for (error of errors) { %>
+                     <%= error %><br>
+                 <% } %>
+             </div>
+         <% } %>
+		
+		<form action="/add" method="POST">
+
+            <div class="form-group">
+                <label>Your salary</label>
+                <input type="text" name="salary" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label>Starts on</label>
+                <input type="text" name="pay_date" class="form-control" value="1",placeholder="Enter your pay date (e.g 1)">
+            </div>
+
+            <div class="form-group">
+                <label>Current balance</label>
+                <input type="text" name="balance" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-lg">Let's go!</button>
+            </div>
+
+        </form>
+    </div>
+  </div>
